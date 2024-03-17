@@ -1,0 +1,17 @@
+version: '2.4'
+
+services:
+  backend: 
+    build: .
+    ports:
+      - 3000:3000
+  database:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: nestjs-template
+    ports:
+      - 54320:5432
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data
